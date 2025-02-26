@@ -17,12 +17,20 @@ config.font = wezterm.font_with_fallback {
   'MyricaM M',
   'Myrica M',
 }
-config.font_size = 10.0
 
-config.initial_cols = 180
-config.initial_rows = 80
+if wezterm.target_triple == 'x86_64-apple-darwin' then
+  config.font_size = 18.0
+
+  config.initial_cols = 100
+  config.initial_rows = 40
+end
 
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
+  config.font_size = 10.0
+
+  config.initial_cols = 180
+  config.initial_rows = 80
+
    config.default_prog = { 'c:/cygwin64/bin/fish', '-l'}
 end
 
