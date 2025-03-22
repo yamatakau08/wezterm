@@ -37,7 +37,7 @@ end
 config.window_background_opacity = 0.70
 
 config.keys = {
-  { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
+  { key = 'l', mods = 'ALT|CMD', action = wezterm.action.ShowLauncher },
   {
     key = 't',
     mods = 'ALT',
