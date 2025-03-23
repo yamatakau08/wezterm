@@ -41,9 +41,13 @@ config.keys = {
   {
     key = 't',
     mods = 'ALT',
-    -- action = act.SpawnTab 'CurrentPaneDomain',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  },
+  {
+    key = 'c',
+    mods = 'ALT',
     action = act.SpawnCommandInNewTab {
-       args = { 'cmd.exe' }
+      args = { 'cmd.exe' },
     },
   },
 }
