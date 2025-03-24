@@ -37,6 +37,8 @@ end
 config.window_background_opacity = 0.70
 
 config.keys = {
+  -- paste from the clipboard
+  { key = 'v', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
   { key = 'l', mods = 'ALT|CMD', action = wezterm.action.ShowLauncher },
   {
     key = 't',
