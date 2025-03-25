@@ -52,6 +52,12 @@ config.keys = {
       args = { 'cmd.exe' },
     },
   },
+  -- reload configuration
+  {
+    key = 'r',
+    mods = 'ALT|CMD',
+    action = act.ReloadConfiguration,
+  },
 }
 
 config.launch_menu = {
