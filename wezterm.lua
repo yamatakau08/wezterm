@@ -31,7 +31,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.initial_cols = 180
   config.initial_rows = 80
 
-   config.default_prog = { 'c:/cygwin64/bin/fish', '-l'}
+  config.default_prog = { 'c:/cygwin64/bin/fish', '-l'}
 end
 
 config.window_background_opacity = 0.70
@@ -57,6 +57,17 @@ config.keys = {
     key = 'r',
     mods = 'ALT|CMD',
     action = act.ReloadConfiguration,
+  },
+  -- This will create a new split and run your default program inside it
+  {
+    key = 's',
+    mods = 'ALT',
+    action = wezterm.action.SplitVertical,
+  },
+    {
+    key = 'v',
+    mods = 'ALT',
+    action = wezterm.action.SplitHorizontal,
   },
 }
 
