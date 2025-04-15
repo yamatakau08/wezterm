@@ -85,7 +85,7 @@ config.keys = {
     mods = 'ALT',
     action = wezterm.action.SplitVertical,
   },
-    {
+  {
     key = 'v',
     mods = 'ALT',
     action = wezterm.action.SplitHorizontal,
