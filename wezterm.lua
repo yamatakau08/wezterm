@@ -18,7 +18,7 @@ config.font = wezterm.font_with_fallback {
   'Myrica M',
 }
 
-if wezterm.target_triple == 'x86_64-apple-darwin' then
+if wezterm.target_triple == 'aarch64-apple-darwin' or  wezterm.target_triple == 'x86_64-apple-darwin' then
   config.font_size = 18.0
 
   config.initial_cols = 100
