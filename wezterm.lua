@@ -9,14 +9,15 @@ local act = wezterm.action
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'AdventureTime'
+--config.color_scheme = 'AdventureTime'
+config.color_scheme = 'Aardvark Blue'
 
 config.enable_scroll_bar=true
 
-config.font = wezterm.font_with_fallback {
-  'MyricaM M',
-  'Myrica M',
-}
+-- config.font = wezterm.font_with_fallback {
+--   'MyricaM M',
+--   'Myrica M',
+-- }
 
 if wezterm.target_triple == 'aarch64-apple-darwin' or  wezterm.target_triple == 'x86_64-apple-darwin' then
   config.font_size = 18.0
@@ -36,7 +37,14 @@ end
 
 config.window_background_opacity = 0.70
 
+-- https://wezterm.org/config/lua/config/adjust_window_size_when_changing_font_size.html
+config.adjust_window_size_when_changing_font_size = false ;
+
 config.keys = {
+
+  { key = '+', mods = 'SUPER', action = wezterm.action.IncreaseFontSize },
+  -- { key = '-', mods = 'SUPER', action = wezterm.action.DecreaseFontSize }, -- Default Works this keybinds
+
   -- change active pane
   {
     key = 'LeftArrow',
