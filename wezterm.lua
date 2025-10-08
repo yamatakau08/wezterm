@@ -35,7 +35,19 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { 'c:/cygwin64/bin/fish', '-l'}
 end
 
-config.window_background_opacity = 0.70
+-- opacity
+--config.window_background_opacity = 0.7
+
+-- https://wezterm.org/config/lua/window/set_config_overrides.html?h=opacity
+wezterm.on('toggle-opacity', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.7
+  else
+    overrides.window_background_opacity = nil
+  end
+  window:set_config_overrides(overrides)
+end)
 
 -- https://wezterm.org/config/lua/config/adjust_window_size_when_changing_font_size.html
 config.adjust_window_size_when_changing_font_size = false ;
@@ -97,6 +109,12 @@ config.keys = {
     key = 'v',
     mods = 'ALT',
     action = wezterm.action.SplitHorizontal,
+  },
+  -- a key assignment (CTRL-SHIFT-B) is used to toggle opacity for the window:
+  {
+      key = 'B',
+      mods = 'CTRL',
+      action = wezterm.action.EmitEvent 'toggle-opacity',
   },
 }
 
