@@ -118,6 +118,29 @@ config.keys = {
       mods = 'CTRL',
       action = wezterm.action.EmitEvent 'toggle-opacity',
   },
+
+  {
+    -- Cmd + Shift + T で選択範囲をGoogle翻訳で開く
+    key = 'T',
+    mods = 'CMD|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      -- 現在選択されているテキストを取得
+      local selection = window:get_selection_text_for_pane(pane)
+      if selection and selection ~= "" then
+        -- URLエンコード（英数字・-.~ 以外の全バイトを %XX に変換）
+        local encoded = selection:gsub("([^%w%-%.~])", function(c)
+          return string.format("%%%02X", string.byte(c))
+        end)
+        -- Google翻訳のURLを組み立てる（sl=auto: 原文言語を自動判定、tlは指定せずGoogle側のデフォルトに任せる）
+        local url = string.format(
+          'https://translate.google.com/?sl=auto&text=%s&op=translate',
+          encoded
+        )
+        -- macOSのopenコマンドでブラウザを起動
+        os.execute(string.format('open "%s"', url))
+      end
+    end),
+  },
 }
 
 config.launch_menu = {
