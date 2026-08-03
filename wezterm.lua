@@ -82,6 +82,7 @@ config.keys = {
   },
   -- paste from the clipboard
   { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
+  { key = 'v', mods = 'CTRL' , action = act.PasteFrom 'Clipboard' },
   { key = 'l', mods = 'ALT|CMD', action = act.ShowLauncher },
   {
     key = 't',
