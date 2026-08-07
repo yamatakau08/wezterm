@@ -37,6 +37,15 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { 'c:/cygwin64/bin/fish', '-l'}
 end
 
+if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
+  config.font_size = 10.0
+
+  config.initial_cols = 180
+  config.initial_rows = 80
+
+  config.default_prog = { 'fish', '-l' }
+end
+
 -- opacity
 --config.window_background_opacity = 0.7
 
