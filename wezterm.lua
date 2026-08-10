@@ -14,10 +14,9 @@ config.color_scheme = 'Aardvark Blue'
 
 config.enable_scroll_bar=true
 
--- config.font = wezterm.font_with_fallback {
---   'MyricaM M',
---   'Myrica M',
--- }
+config.font = wezterm.font_with_fallback {
+  'HackGen Console',
+}
 
 if wezterm.target_triple == 'aarch64-apple-darwin' or  wezterm.target_triple == 'x86_64-apple-darwin' then
   config.font_size = 18.0
@@ -38,7 +37,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
 end
 
 if wezterm.target_triple == 'x86_64-unknown-linux-gnu' then
-  config.font_size = 10.0
+  config.font_size = 13.0
 
   config.initial_cols = 180
   config.initial_rows = 80
